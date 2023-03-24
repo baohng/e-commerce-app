@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1036208609092",
+    "project_id": "ebn-db",
+    "storage_bucket": "ebn-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036208609092:android:479d50b43744a2de18a911",
+        "android_client_info": {
+          "package_name": "com.example.ebn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036208609092-ajqlp6hgrnls0s9jgf9vnf4n0gsg77vh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsCzIjiui2sYVwaajxRoWd8rGjYjzuym8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036208609092-ajqlp6hgrnls0s9jgf9vnf4n0gsg77vh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
