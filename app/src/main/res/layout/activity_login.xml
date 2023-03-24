@@ -59,12 +59,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:text="ALREADY HAVE AN ACCOUNT"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign up"
-                android:textColor="@color/black"/>
         </LinearLayout>
 
         <TextView
@@ -74,6 +68,7 @@
             android:textColor="@color/black"/>
 
         <EditText
+            android:id="@+id/editTextEmailLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -92,6 +87,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/editTextPasswordLog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -110,10 +106,24 @@
             android:text="Remember password"
             android:textColor="@color/black"/>
 
+        <ProgressBar
+            android:id="@+id/progressBarLog"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <Button
+            android:id="@+id/buttonLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SIGN IN"/>
+
+        <TextView
+            android:id="@+id/registerNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click here to register"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <LinearLayout
