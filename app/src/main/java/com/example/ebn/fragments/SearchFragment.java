@@ -1,4 +1,4 @@
-package com.example.ebn;
+package com.example.ebn.fragments;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ebn.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link QrScanFragment#newInstance} factory method to
+ * Use the {@link SearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QrScanFragment extends Fragment {
+public class SearchFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class QrScanFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public QrScanFragment() {
+    public SearchFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class QrScanFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment QrScanFragment.
+     * @return A new instance of fragment SearchFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static QrScanFragment newInstance(String param1, String param2) {
-        QrScanFragment fragment = new QrScanFragment();
+    public static SearchFragment newInstance(String param1, String param2) {
+        SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class QrScanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_qr_scan, container, false);
+        return inflater.inflate(R.layout.fragment_search, container, false);
     }
 }

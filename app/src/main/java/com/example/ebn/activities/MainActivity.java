@@ -1,19 +1,19 @@
-package com.example.ebn;
+package com.example.ebn.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
+import com.example.ebn.R;
 import com.example.ebn.databinding.ActivityMainBinding;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.ebn.fragments.AccountFragment;
+import com.example.ebn.fragments.HomepageFragment;
+import com.example.ebn.fragments.QrScanFragment;
+import com.example.ebn.fragments.RoomFragment;
+import com.example.ebn.fragments.SearchFragment;
 
 public class MainActivity extends AppCompatActivity {
 
