@@ -7,11 +7,179 @@
     android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
+<!--    <TextView-->
+<!--        android:textColor="@color/black"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Account Fragment" />-->
+
+    <LinearLayout
+        android:id="@+id/accountTopLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Account Fragment" />
+        android:orientation="horizontal"
+        android:layout_gravity="top">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_ios_new_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your account"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_local_grocery_store_24"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/accountFunctionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact details"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"/>
+
+        <LinearLayout
+            android:id="@+id/accountEditProfileFunctionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_account_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_forward_ios_24"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountEmailAddressFunctionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_chat_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email address"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_forward_ios_24"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountPhoneNumberFunctionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_phone_iphone_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_forward_ios_24"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountResidentialAddressFunctionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_location_on_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Residential addresses"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_forward_ios_24"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountLogOutFunctionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logout_24"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log out"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_forward_ios_24"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>
