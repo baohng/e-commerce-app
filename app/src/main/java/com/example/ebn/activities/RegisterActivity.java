@@ -3,9 +3,10 @@ package com.example.ebn.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText editTextEmail, editTextPassword;
+    EditText editTextEmail, editTextPassword, editTextFullNameReg, editTextPhoneNumReg;
     Button buttonReg;
     TextView loginNow;
     ProgressBar progressBar;
@@ -39,11 +40,15 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
+        editTextFullNameReg = findViewById(R.id.editTextFullNameReg);
+        editTextPhoneNumReg = findViewById(R.id.editTextPhoneNumReg);
         editTextEmail = findViewById(R.id.editTextEmailReg);
         editTextPassword = findViewById(R.id.editTextPasswordReg);
         buttonReg = findViewById(R.id.buttonReg);
@@ -64,17 +69,41 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password;
-                email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextPassword.getText());
+                String email, password, fullname, phoneNum;
+                email = editTextEmail.getText().toString().trim();
+                password = editTextPassword.getText().toString().trim();
+                fullname = editTextFullNameReg.getText().toString().trim();
+                phoneNum = editTextPhoneNumReg.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email)) {         //check input empty or not
-                    Toast.makeText(RegisterActivity.this, "Please enter your email!",Toast.LENGTH_SHORT).show();
+
+                if (fullname.isEmpty()) {
+                    editTextFullNameReg.setError("Full name is required!");
+                    editTextFullNameReg.requestFocus();
                     return;
                 }
-
-                if (TextUtils.isEmpty(email)) {         //check input empty or not
-                    Toast.makeText(RegisterActivity.this, "Please enter your email!",Toast.LENGTH_SHORT).show();
+                if (phoneNum.isEmpty()) {
+                    editTextPhoneNumReg.setError("Phone number is required!");
+                    editTextPhoneNumReg.requestFocus();
+                    return;
+                }
+                if (email.isEmpty()) {
+                    editTextEmail.setError("Email is required!");
+                    editTextEmail.requestFocus();
+                    return;
+                }
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    editTextEmail.setError("Please provide valid email!");
+                    editTextEmail.requestFocus();
+                    return;
+                }
+                if (password.isEmpty()) {
+                    editTextPassword.setError("Password is required!");
+                    editTextPassword.requestFocus();
+                    return;
+                }
+                if (password.length() < 6) {
+                    editTextPassword.setError("Min password length should be 6 characters!");
+                    editTextPassword.requestFocus();
                     return;
                 }
 
