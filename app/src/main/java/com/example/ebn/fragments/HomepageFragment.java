@@ -1,5 +1,6 @@
 package com.example.ebn.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,7 +18,7 @@ import com.google.android.material.tabs.TabLayout;
  * Use the {@link HomepageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomepageFragment extends Fragment {
+public class HomepageFragment extends Fragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,6 +28,8 @@ public class HomepageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager;
     public HomepageFragment() {
         // Required empty public constructor
     }
@@ -58,10 +61,34 @@ public class HomepageFragment extends Fragment {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_homepage, container, false);
+        View view = inflater.inflate(R.layout.fragment_homepage, container, false);
+
+        tabLayout = view.findViewById(R.id.tab_Layout);
+        viewPager = view.findViewById(R.id.view_pager);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition()); {
+
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        return view;
     }
 }
