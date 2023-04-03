@@ -1,21 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomepageFragment"
-    android:background="@color/teal_200">
+    android:background="@color/white"
+    android:id="@+id/homepageLayoutContainer"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_200sdp"
-        android:layout_marginStart="@dimen/_120sdp"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Homepage Fragment" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:gravity="end"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/homepageShareIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/icon_share"/>
+
+        <ImageView
+            android:id="@+id/homepageHeartIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/icon_heart"/>
+
+        <ImageView
+            android:id="@+id/homepageCoinIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/icon_coin"/>
+
+        <ImageView
+            android:id="@+id/homepageStoreIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/icon_add_to_cart"
+            android:src="@drawable/ic_outline_shopping_cart_24"/>
+
+        <ImageView
+            android:id="@+id/homepageNotificationIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/icon_notification"
+            android:src="@drawable/ic_notifications_none_24"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/briefProfileDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:background="@color/teal_700"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="tabLayout"
+        android:background="@color/teal_200">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Posts"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reels"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
