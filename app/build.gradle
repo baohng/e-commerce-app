@@ -36,10 +36,9 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-auth:21.1.0'
-    implementation 'com.google.android.material:material:1.8.0'
 
     //RecyclerView
     implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
@@ -47,6 +46,18 @@ dependencies {
     //Scalable size unit (support for different screen size)
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //Material Design
+    implementation 'com.google.android.material:material:1.7.0'
+
+    //Rounded ImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // GridLayout
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

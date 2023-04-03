@@ -1,27 +1,22 @@
 package com.example.ebn.fragments;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.ebn.R;
-import com.google.android.material.tabs.TabLayout;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomepageFragment#newInstance} factory method to
+ * Use the {@link ReelsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomepageFragment extends Fragment{
+public class ReelsFragment extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,9 +26,7 @@ public class HomepageFragment extends Fragment{
     private String mParam1;
     private String mParam2;
 
-    private TabLayout tabLayout;
-    private ViewPager2 viewPager;
-    public HomepageFragment() {
+    public ReelsFragment() {
         // Required empty public constructor
     }
 
@@ -43,11 +36,11 @@ public class HomepageFragment extends Fragment{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomepageFragment.
+     * @return A new instance of fragment ReelsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomepageFragment newInstance(String param1, String param2) {
-        HomepageFragment fragment = new HomepageFragment();
+    public static ReelsFragment newInstance(String param1, String param2) {
+        ReelsFragment fragment = new ReelsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,33 +57,10 @@ public class HomepageFragment extends Fragment{
         }
     }
 
-    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_homepage, container, false);
-        
-        tabLayout = view.findViewById(R.id.tab_Layout);
-        viewPager = view.findViewById(R.id.view_pager);
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition()); {
-
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_reels, container, false);
     }
 }
