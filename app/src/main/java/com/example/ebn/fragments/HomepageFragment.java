@@ -33,10 +33,7 @@ public class HomepageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    FirebaseAuth auth;
-    FirebaseUser user;
-    Button button;
-    TextView textView;
+
 
 
     public HomepageFragment() {
@@ -76,30 +73,6 @@ public class HomepageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_homepage, container, false);
-
-        auth = FirebaseAuth.getInstance();
-        button = view.findViewById(R.id.buttonLogout);
-        textView = view.findViewById(R.id.currentUser);
-        user = auth.getCurrentUser();
-
-        if (user == null) {
-            Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
-            getActivity().finish();
-        }
-        else {
-            textView.setText(user.getEmail());
-        }
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getActivity().getApplicationContext(),LoginActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
 
         return view;
     }
