@@ -1,5 +1,7 @@
 package com.example.ebn.fragments;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +9,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.ebn.R;
+import com.example.ebn.activities.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +32,11 @@ public class AccountFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    FirebaseAuth auth;
+    FirebaseUser user;
+    Button button;
+    TextView textView;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -57,10 +69,39 @@ public class AccountFragment extends Fragment {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+
+
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        button = view.findViewById(R.id.buttonLogout);
+        textView = view.findViewById(R.id.currentUser);
+        user = auth.getCurrentUser();
+
+        if (user == null) {
+            Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        }
+        else {
+            textView.setText(user.getEmail());
+        }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity().getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
+        return view;
     }
 }

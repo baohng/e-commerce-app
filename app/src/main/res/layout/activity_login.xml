@@ -73,7 +73,8 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="baohng@gmail.com"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/textColorHint"
+            android:textColor="@color/black"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +93,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="************"
-                android:textColorHint="@color/black"/>
+                android:textColorHint="@color/textColorHint"
+                android:textColor="@color/black"/>
 
             <ImageView
                 android:layout_width="wrap_content"

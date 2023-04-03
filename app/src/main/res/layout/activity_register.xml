@@ -68,11 +68,13 @@
             android:textColor="@color/black"/>
 
         <EditText
+            android:id="@+id/editTextFullNameReg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="Bao HNG"
-            android:textColorHint="@color/black"/>
+            android:textColorHint="@color/textColorHint"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,11 +82,13 @@
             android:text="Phone Number"
             android:textColor="@color/black"/>
         <EditText
+            android:id="@+id/editTextPhoneNumReg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="0187366478"
-            android:textColorHint="@color/black"/>
+            android:textColorHint="@color/textColorHint"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,7 +102,8 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="baohng@gmail.com"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/textColorHint"
+            android:textColor="@color/black"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -117,7 +122,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="************"
-                android:textColorHint="@color/black"/>
+                android:textColorHint="@color/textColorHint"
+                android:textColor="@color/black"/>
 
             <ImageView
                 android:layout_width="wrap_content"
