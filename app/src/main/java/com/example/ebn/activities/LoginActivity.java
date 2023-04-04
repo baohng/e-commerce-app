@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText editTextEmail, editTextPassword;
     Button buttonLog;
-    TextView registerNow;
+    TextView registerNow, forgotPassword;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
 
