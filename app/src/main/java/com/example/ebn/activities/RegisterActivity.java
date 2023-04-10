@@ -23,6 +23,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RegisterActivity extends AppCompatActivity {
 
     EditText editTextEmail, editTextPassword, editTextFullNameReg, editTextPhoneNumReg;
@@ -71,11 +74,19 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password, fullname, phoneNum;
+                String email, password, fullname, phoneNum, descript,gender, occupation, dob;
                 email = editTextEmail.getText().toString().trim();
                 password = editTextPassword.getText().toString().trim();
                 fullname = editTextFullNameReg.getText().toString().trim();
                 phoneNum = editTextPhoneNumReg.getText().toString().trim();
+                descript = "";
+                gender = "";
+                occupation = "";
+
+                Date date = new Date();
+                Date newDate = new Date(date.getTime() + (604800000L * 2) + (24 * 60 * 60));
+                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+                dob = dt.format(newDate);
 
 
                 if (fullname.isEmpty()) {
@@ -115,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if (task.isSuccessful()) {
-                                    User user = new User(fullname, phoneNum, email);
+                                    User user = new User(fullname, phoneNum, email, descript, gender, occupation, dob);
                                     FirebaseDatabase.getInstance().getReference("Users")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
