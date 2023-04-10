@@ -132,6 +132,44 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         } else {
             Toast.makeText(this, "No personal image file selected",Toast.LENGTH_LONG).show();
         }
+
+        if (imageCoverUri != null) {
+            StorageReference fileReference = storageRef.child(System.currentTimeMillis()
+                    + "." + getFileExtension(imageCoverUri));
+            fileReference.putFile(imageCoverUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressBar.setProgress(0);
+                                }
+                            }, 500);
+
+                            Toast.makeText(EditProfile.this, "Upload successful", Toast.LENGTH_LONG).show();
+                            databaseRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child("mCoverImageUrl")
+                                    .setValue(taskSnapshot.getStorage().getDownloadUrl().toString());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                            double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                            progressBar.setProgress((int) progress);
+                        }
+                    });
+        } else {
+            Toast.makeText(this, "No personal image file selected",Toast.LENGTH_LONG).show();
+        }
     }
 
     private void openCamera() {
