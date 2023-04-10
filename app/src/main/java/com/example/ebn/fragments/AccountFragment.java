@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ebn.R;
+import com.example.ebn.activities.EditProfile;
 import com.example.ebn.activities.LoginActivity;
 import com.example.ebn.entities.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,7 +48,7 @@ public class AccountFragment extends Fragment {
     private FirebaseUser user;
     private DatabaseReference reference;
     private Button button;
-    private TextView textView;
+    private TextView textView, textViewEditPersonalProfile;
     private String userID;
 
 
@@ -94,6 +95,7 @@ public class AccountFragment extends Fragment {
         auth = FirebaseAuth.getInstance();
         button = view.findViewById(R.id.buttonLogout);
         textView = view.findViewById(R.id.currentUser);
+        textViewEditPersonalProfile = view.findViewById(R.id.textviewEditPersonalProfile);
         user = auth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
@@ -134,6 +136,14 @@ public class AccountFragment extends Fragment {
                 Intent intent = new Intent(getActivity().getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+            }
+        });
+
+        textViewEditPersonalProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), EditProfile.class);
+                startActivity(intent);
             }
         });
 

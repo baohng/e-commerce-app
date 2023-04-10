@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.EditProfile"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--    Top navigation bar-->
+            <LinearLayout
+                android:id="@+id/topNavigationBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_back_ios_new_24"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Profile"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_16ssp"/>
+            </LinearLayout>
+            <!--    Edit Image-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/topNavigationBar"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/image_person_24"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Update cover media"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_12ssp"
+                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageViewCoverIcon"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/outline_cloud_upload_24"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewUpLoadText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Let's upload photos and video"
+                        android:textColor="@color/textColorHint"
+                        app:layout_constraintTop_toBottomOf="@id/imageViewCoverIcon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                    <Button
+                        android:id="@+id/buttonOpenGallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewUpLoadText"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:text="Open Gallery"
+                        android:layout_marginStart="@dimen/_24sdp"/>
+
+                    <Button
+                        android:id="@+id/buttonOpenCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textViewUpLoadText"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="Open Camera"
+                        android:layout_marginEnd="@dimen/_24sdp"/>
+
+                    <ImageView
+                        android:id="@+id/imageViewCoverImage"
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        app:layout_constraintTop_toBottomOf="@id/buttonOpenGallery"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add description"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_12ssp"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:gravity="start"
+                        android:hint="Input your descriptions"
+                        android:textColorHint="@color/textColorHint"
+                        android:id="@+id/inputDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:minHeight="@dimen/_100sdp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="TouchTargetSizeCheck"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@id/inputDescription"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_search_24"
+                                />
+
+                            <EditText
+                                android:layout_width="@dimen/_160sdp"
+                                android:layout_height="wrap_content"
+                                android:hint="Change your name"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:textColorHint="@color/textColorHint"
+                                tools:ignore="TouchTargetSizeCheck"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/outline_calendar_month_24"
+                                />
+
+                            <EditText
+                                android:layout_width="@dimen/_160sdp"
+                                android:layout_height="wrap_content"
+                                android:hint="Date of birth"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:textColorHint="@color/textColorHint"
+                                tools:ignore="TouchTargetSizeCheck"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/outline_calendar_month_24"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_search_24"
+                                />
+
+                            <EditText
+                                android:layout_width="@dimen/_160sdp"
+                                android:layout_height="wrap_content"
+                                android:hint="Gender"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:textColorHint="@color/textColorHint"
+                                tools:ignore="TouchTargetSizeCheck"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/outline_calendar_month_24"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <EditText
+                                android:layout_width="@dimen/_160sdp"
+                                android:layout_height="wrap_content"
+                                android:hint="Occupation"
+                                android:layout_marginStart="@dimen/_23sdp"
+                                android:textColorHint="@color/textColorHint"
+                                tools:ignore="TouchTargetSizeCheck"/>
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/buttonUpdateProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Update"/>
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
