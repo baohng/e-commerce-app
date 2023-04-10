@@ -3,7 +3,7 @@ package com.example.ebn.entities;
 import java.util.Date;
 
 public class User {
-    public String fullName, phoneNumber, email, descript, gender, occupation, dob;
+    public String fullName, phoneNumber, email, descript, gender, occupation, dob, personalImage, coverImage;
 
     public User() {
 
