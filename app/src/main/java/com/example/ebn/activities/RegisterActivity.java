@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password, fullname, phoneNum, descript,gender, occupation, dob;
+                String email, password, fullname, phoneNum, descript,gender, occupation, dob, personalImageUrl, coverImageUrl;
                 email = editTextEmail.getText().toString().trim();
                 password = editTextPassword.getText().toString().trim();
                 fullname = editTextFullNameReg.getText().toString().trim();
@@ -82,6 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
                 descript = "";
                 gender = "";
                 occupation = "";
+                personalImageUrl = "";
+                coverImageUrl = "";
 
                 Date date = new Date();
                 Date newDate = new Date(date.getTime() + (604800000L * 2) + (24 * 60 * 60));
@@ -126,7 +128,8 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if (task.isSuccessful()) {
-                                    User user = new User(fullname, phoneNum, email, descript, gender, occupation, dob);
+                                    User user = new User(fullname, phoneNum, email, descript, gender, occupation, dob,
+                                            personalImageUrl, coverImageUrl);
                                     FirebaseDatabase.getInstance().getReference("Users")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
