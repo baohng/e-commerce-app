@@ -1,5 +1,7 @@
 package com.example.ebn.activities;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +12,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -22,8 +26,11 @@ import com.example.ebn.entities.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -35,6 +42,7 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
 
     private ImageView backToIcon, personalImage, coverImage;
     private Button buttonOpenGallery, buttonOpenCamera, buttonUpdateProfile;
+    private EditText editTextUserName, editTextDoB, editTextGender, editTextOccupation;
     private ProgressBar progressBar;
     private static final int PICK_IMAGE_PERSONAL_REQUEST = 1;
     private static final int PICK_IMAGE_COVER_REQUEST = 2;
@@ -57,6 +65,10 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         buttonOpenCamera = findViewById(R.id.buttonOpenCamera);
         buttonUpdateProfile = findViewById(R.id.buttonUpdateProfile);
         progressBar = findViewById(R.id.progress_bar);
+        editTextUserName = findViewById(R.id.editTextUserName);
+        editTextDoB = findViewById(R.id.editTextDoB);
+        editTextGender = findViewById(R.id.editTextGender);
+        editTextOccupation = findViewById(R.id.editTextOccupation);
 
         storageRef = FirebaseStorage.getInstance().getReference("profileUploads");
         databaseRef = FirebaseDatabase.getInstance().getReference("Users");
@@ -66,6 +78,8 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
         personalImage.setOnClickListener(this);
         buttonOpenGallery.setOnClickListener(this);
         buttonOpenCamera.setOnClickListener(this);
+
+        retrieveProfile();
     }
 
     @Override
@@ -88,13 +102,53 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(EditProfile.this, "Upload in progress", Toast.LENGTH_SHORT).show();
                 } else {
+                    updateProfile();
                     uploadFile();
                 }
                 break;
         }
     }
+    private void retrieveProfile() {
+        databaseRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addValueEventListener(new ValueEventListener() {
+            String fullName, phoneNum, descript,gender, occupation, dob, personalImageUrl, coverImageUrl;
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+
+                if (user != null) {
+                    fullName = user.fullName;
+                    phoneNum = user.phoneNumber;
+                    descript = user.descript;
+                    gender = user.gender;
+                    occupation = user.occupation;
+                    dob = user.dob;
+                    personalImageUrl = user.mPersonalImageUrl;
+                    coverImageUrl = user.mCoverImageUrl;
+
+                    editTextUserName.setText(fullName);
+                    editTextDoB.setText(dob);
+                    editTextGender.setText(gender);
+                    editTextOccupation.setText(occupation);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
+
+    private void updateProfile() {
+        retrieveProfile();
+    }
 
     private void uploadFile() {
+
+        //upload personal image (avatar)
         if (imagePersonalUri != null) {
             StorageReference fileReference = storageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(imagePersonalUri));
@@ -133,6 +187,7 @@ public class EditProfile extends AppCompatActivity implements View.OnClickListen
             Toast.makeText(this, "No personal image file selected",Toast.LENGTH_LONG).show();
         }
 
+        //Upload cover image
         if (imageCoverUri != null) {
             StorageReference fileReference = storageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(imageCoverUri));

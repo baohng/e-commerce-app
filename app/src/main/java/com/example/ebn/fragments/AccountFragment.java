@@ -48,7 +48,7 @@ public class AccountFragment extends Fragment {
     private FirebaseUser user;
     private DatabaseReference reference;
     private Button button;
-    private TextView textView, textViewEditPersonalProfile;
+    private TextView textViewCurrentUser, textViewEditPersonalProfile;
     private String userID;
 
 
@@ -94,7 +94,7 @@ public class AccountFragment extends Fragment {
 
         auth = FirebaseAuth.getInstance();
         button = view.findViewById(R.id.buttonLogout);
-        textView = view.findViewById(R.id.currentUser);
+        textViewCurrentUser = view.findViewById(R.id.currentUserProfileEmail);
         textViewEditPersonalProfile = view.findViewById(R.id.textviewEditPersonalProfile);
         user = auth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -126,7 +126,7 @@ public class AccountFragment extends Fragment {
             getActivity().finish();
         }
         else {
-            textView.setText(user.getEmail());
+            textViewCurrentUser.setText(user.getEmail());
         }
 
         button.setOnClickListener(new View.OnClickListener() {

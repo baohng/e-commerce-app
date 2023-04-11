@@ -181,11 +181,13 @@
                                 />
 
                             <EditText
+                                android:id="@+id/editTextUserName"
                                 android:layout_width="@dimen/_160sdp"
                                 android:layout_height="wrap_content"
                                 android:hint="Change your name"
                                 android:layout_marginStart="@dimen/_6sdp"
                                 android:textColorHint="@color/textColorHint"
+                                android:textColor="@color/textColor"
                                 tools:ignore="TouchTargetSizeCheck"/>
 
                         </LinearLayout>
@@ -203,11 +205,13 @@
                                 />
 
                             <EditText
+                                android:id="@+id/editTextDoB"
                                 android:layout_width="@dimen/_160sdp"
                                 android:layout_height="wrap_content"
                                 android:hint="Date of birth"
                                 android:layout_marginStart="@dimen/_6sdp"
                                 android:textColorHint="@color/textColorHint"
+                                android:textColor="@color/textColor"
                                 tools:ignore="TouchTargetSizeCheck"/>
 
                             <ImageView
@@ -231,10 +235,12 @@
                                 />
 
                             <EditText
+                                android:id="@+id/editTextGender"
                                 android:layout_width="@dimen/_160sdp"
                                 android:layout_height="wrap_content"
                                 android:hint="Gender"
                                 android:layout_marginStart="@dimen/_6sdp"
+                                android:textColor="@color/textColor"
                                 android:textColorHint="@color/textColorHint"
                                 tools:ignore="TouchTargetSizeCheck"/>
 
@@ -252,11 +258,13 @@
                             android:gravity="center_vertical">
 
                             <EditText
+                                android:id="@+id/editTextOccupation"
                                 android:layout_width="@dimen/_160sdp"
                                 android:layout_height="wrap_content"
                                 android:hint="Occupation"
                                 android:layout_marginStart="@dimen/_23sdp"
                                 android:textColorHint="@color/textColorHint"
+                                android:textColor="@color/textColor"
                                 tools:ignore="TouchTargetSizeCheck"/>
 
                         </LinearLayout>

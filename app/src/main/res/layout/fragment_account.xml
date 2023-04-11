@@ -77,7 +77,7 @@
                 />
 
             <TextView
-                android:id="@+id/textViewUserProfileDescription"
+                android:id="@+id/currentUserProfileEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="software engineer."
@@ -231,7 +231,6 @@
             android:orientation="vertical"
             android:gravity="center">
             <TextView
-                android:id="@+id/currentUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hello World!"
